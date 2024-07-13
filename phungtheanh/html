@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kiểm tra so nguyên dương chẵn</title>
+</head>
+<body>
+    <h1>kiểm tra so nguyên dương chẵn</h1>
+    <button> onclick = "checkevenpositiveinteger()">nhập số</button>
+    <script src=""></script>
+</body>
+</html>
