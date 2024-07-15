@@ -1,3 +1,4 @@
+
 // Global Scope
 console.log("Hello my friend");
 const first_name = "nghiem";
