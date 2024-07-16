@@ -1,0 +1,13 @@
+const diem = 7;
+    if(diem >= 8.5 && diem <= 10){
+        console.log("A");
+    }
+    elseif(diem >= 7 && diem < 8.5){
+        console.log("B");
+    }
+    elseif(diem >= 5.5 && diem < 7){
+        console.log("C");
+    }
+    else{
+        console.log("D");
+    }
