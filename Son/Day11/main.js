@@ -76,7 +76,7 @@ TinhChuVi(70, ShowNotification);
 TinhChuVi(100, ShowNotificationVNS);
 // TinhChuVi(120, function (data) {
 //   alert(data);
-// });
+// });   
 
 const ShowData = function (data) {
   console.log(data);

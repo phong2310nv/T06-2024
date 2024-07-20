@@ -310,10 +310,9 @@ function calculateTotalInventory(product) {
     return totalInventory;
   }
   
-  
   const product = {
     name: "T-shirt",
-    code: "TSH123",
+    code: "TSH123",  
     red: 10,
     blue: 20,
     green: 5,
