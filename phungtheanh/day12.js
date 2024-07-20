@@ -96,3 +96,49 @@ function checkSumAndPrime(n1){
 
 let n1 = 123;
 checkSumAndPrime(n1);
+
+//cau 5
+const students = [
+    { name: "Alice", scores: [85, 90, 80] },
+    { name: "Bob", scores: [90, 95, 85] },
+    { name: "Carol", scores: [75, 80, 70] },
+    { name: "David", scores: [80, 85, 75] },
+    { name: "Eve", scores: [95, 100, 90] }
+];
+
+function calculateAverageScores(students){
+    const numSubjects students[0].score.length;
+    const totalScores = new Array(numSubjects).fill(0);
+
+    students.forEach(student => {
+        student.scores.forEach((scores,index) => {
+            totalScores[index] += score;
+        });
+    });
+
+    const averageScores =totalScores.map(totalScore => totalScore => totalScore / students.length);
+
+    return averageScores;
+}
+
+const averagerScores = calculateAverageScores(students);
+
+averageScores.forEach((averageScore,index) => {
+    console.log(`mon ${index + 1} : ${averageScore}`);
+});
+
+//cau 6
+function tinh_giai_thua(n2){
+    let tong = 1;
+    if (n2 < 0) return false;
+    if (n2 === 0 || n2 === 1) console.log(`1`);
+    if (n2 > 1){
+        for(let i=2; i<n; i++){
+            tong *= i; 
+        }
+        return tong;
+    }
+    const n = 5;
+    const output = tinh_giai_thua(n2);
+    console.log(`giai thua cua ${n} la: ${output}`);
+}
