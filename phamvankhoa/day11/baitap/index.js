@@ -18,6 +18,7 @@ var tong = tichc8(4,5)+tichc8(2,3);
 // Câu 9: Viết Hàm nhận vào 2 số, TRẢ VỀ số Lớn hơn
 
 function sosanhc9(a,b){
+    if(a===b) return "a=b";
     if(a>b){
         return a;
     }
@@ -37,6 +38,8 @@ function tienthuong10(object){
             return 10000;
         case 'D':
             return 5000;
+        default:
+            return;
     }
 }
 
@@ -49,7 +52,7 @@ function sthangc11(a,b,h){
 // Câu 12: Viết Hàm tính và thông báo ra kết quả của phương trình bậc 2
 
 function ptb2c12(a,b,c){
-    var delta;
+    var delta=0;
     delta = b*b-4*a*c;
     if(delta<0){
         console.log('Phuong trinh vo nghiem');
