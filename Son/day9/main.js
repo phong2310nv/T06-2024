@@ -104,7 +104,7 @@ console.log(person1);
 
 const address = "22 ' Jumpstr gerge gerg erg "; // String
 const address1 = '22 " Jumpstreet'; // String
-const address3 = `22 Jumpstreet`; // String
+const address3 = `22 Jumpstreet`; // Strings 
 const discount = 99.99; // Number
 const married = true; // Boolean
 const data = null;
