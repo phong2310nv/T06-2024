@@ -15,7 +15,7 @@ const product = [
   {
     name: "but chi",
     price: 10000,
-    amount: 10,
+    amount: 1,
     color: ["red", "green", "blue"],
     origin: "Thien long",
     code: "BC01",
