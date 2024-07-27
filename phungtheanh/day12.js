@@ -158,3 +158,40 @@ arrNumber.forEach(number => {
 
 console.log("evenNumbers:",evenNumbers);
 console.log("oddNumbers:",oddNumbers);
+
+//cau 8
+let sum8 = 0;
+for(let i=1; i<1000; i++){
+    if(i % 3 === 0 || i % 5 === 0){
+        sum8 += i;
+    }
+}
+console.log("tong cac so la boi cua 3 va 5 duoi 1000 la:",sum8);
+
+//cau 9
+function sumArray(numbers9){
+    let sum9 = 0;
+    for(let i=0; i<numbers9.length; i++){
+        sum9 += numbers9[i];
+    }
+    return sum9;
+}
+
+const arrNumber9 = [1, 4, 44, 64, 55, 24, 32, 55, 19, 17, 74, 22, 23];
+const total = sumArray(arrNumber9);
+console.log("tong cac phan tu trong mang la:",total); 
+
+//cau 10
+function findMaxNumber(numbers10){
+    let max = numbers10[0];
+    for(let i=1; i<numbers10.length; i++){
+        if(numbers10[i] > max){
+            max = numbers10[i];
+        }
+    }
+    return max;
+}
+
+const arrNumber10 = [1, 4, 44, 64, 55, 24, 32, 55, 19, 17, 74, 22, 23];
+const maxNumber10 = findMaxNumber(arrNumber10);
+console.log("so lon nhat trong mang la:",maxNumber10);
