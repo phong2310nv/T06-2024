@@ -100,3 +100,46 @@ const allProductsInStock = products.every(product => (product.stock > 0 || produ
 
 console.log(allProductsInStock);
 
+//cau 7
+const updatedProductsWithLock = products.map(product => {
+    return {
+        ...product,
+        locked: product.supplier === "Thien long" 
+    };
+});
+
+console.log(updatedProductsWithLock);
+
+//cau 8
+const codeOfProductWithMoreThanTwoColors = products
+.filter(product => product>colors.length > 2)
+.map(product => product.code);
+
+console.log(codeOfProductWithMoreThanTwoColors);
+
+//cau 9
+const sotedProductsByPrice = products.sort((a,b) => a.price - b.price);
+
+console.log(sotedProductsByPrice);
+
+//cau 10
+const sortedProducts = products.sort((a,b) => {
+    if (a.supplier < b.supplier){
+        return -1;
+    }
+    if (a.supplier > b.supplier){
+        return 1;
+    }
+
+    return a.colors.length - b.colors.length;
+});
+
+console.log(sortedProducts);
+
+//cau 11
+const productsObject = products.reduce((acc, product) => {
+    acc[product.code] = product;
+    return acc;
+}, {});
+
+console.log(productsObject);
