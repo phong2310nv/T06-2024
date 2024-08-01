@@ -51,12 +51,7 @@ const product = [
 
   
 
-  const cau8 = product.sort(function (a, b) {
-    if (a.price - b.price) {
-     return -1;
-    } else {
-     return 1;
-    }
+  const b = product.find(function(item){
+    return item.amount < 10 && item.price >= 8000;
   });
- console.log(cau8)
-
+  console.log(b);
