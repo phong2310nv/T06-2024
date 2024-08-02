@@ -126,6 +126,7 @@ const product = [
 //   return isValid;
 // });
 // console.log(arr5);
+
 // Câu 5: sử dụng hàm của array để kiểm tra xem, có phải có ít nhất một
 //  sản phẩm  của nhà cung cấp "Thien long" có giá trên 10000 không
 // const arr6 = product.some(function(prd){
@@ -133,3 +134,136 @@ const product = [
 //   return isValid;
 // });
 // console.log(arr6);
+
+// Câu 6: sử dụng hàm của array để kiểm tra xem, có phải tất cả các
+//  sản phẩm đều còn hàng hay không?
+// const doubleCheck = product.every(function (prd){
+//   const isValid = prd.amount > 0;
+//   return isValid;
+// });
+// console.log(doubleCheck);
+
+// Câu 7: sử dụng hàm của array để tạo ra một mảng sản phẩm mới,với mỗi sản phẩm
+//  có thêm một thông tin là locked để lưu thông tin xem sản phẩm có đang bị cấm
+// không ,  thực hiện cấm bán với những sản phẩm thuộc nhà cung cấp "Thien long"
+// const isBlocked = product.map(function (prd){
+//   const status = prd.origin === "Thien Long" ? "inactive" : "active";
+//   const newObj = {
+//     origin : prd.origin,
+//     code : prd.code,
+//     name : prd.name,
+//     price : prd.price,
+//     color : prd.color,
+//     status : status,
+//   };
+//   return newObj;
+// });
+// console.log(isBlocked);
+
+// Câu 8: Lấy ra danh sách "code" của các product có nhiều hơn 2 màu
+// const findPro = product.filter(function (prd){
+//   return prd.color.length >= 4;
+// })
+// .map(function(prd){
+//   return prd.code;
+// })
+// .map(function(data){
+//   console.log(data);
+//   return data.toLowerCase();
+// })
+
+// console.log(findPro);
+
+// Câu 9: sử dụng hàm của array để sắp xếp các sản phẩm trên theo
+// thứ tự tăng đần của giá.
+// const arrUpDown = product.sort(function(item1, item2){
+//   if (item1.price > item2.price){
+//     return 1;
+//   }
+//   if (item1.price < item2.price){
+//     return -1;
+//   }
+//   return 0;
+// });
+// console.log(arrUpDown);
+
+// Câu 10: sử dụng hàm của array để sắp xếp các sản phẩm trên theo tên nhà cung cấp, nếu cùng nhà cung cấp
+// xếp theo số lượng màu
+
+// const colorUpDown = product.sort(function(item1, item2){
+//   if (item1.origin > item2.origin){
+//     return 1;
+//   }
+//   if (item1.origin < item2.origin){
+//     return -1;
+//   }
+//   if (item1.color.length > item2.color.length){
+//     return 1;
+//   }
+//   if (item1.color.length < item2.color.length){
+//     return -1;
+//   }
+//   return 0;
+// });
+// console.log(colorUpDown);
+
+// Câu 11: từ mảng product tạo thành một object với các key là từng code của product, và data là product đó:
+// Ví dụ: {}
+// {
+//     BC01: {
+//         name: "but chi",
+//         price: 10000,
+//         amount: 10,
+//         color: ["red", "green", "blue"],
+//         origin: "Thien long",
+//         code: "BC01",
+//       },
+//     BC02:{
+//         name: "but chi",
+//         price: 8000,
+//         amount: 90,
+//         color: ["red", "green"],
+//         origin: "Hong ha",
+//         code: "BC02",
+//      }
+// }
+// pre["BC01"] = {
+//   name: "but chi",
+//   price: 10000,
+//   amount: 10,
+//   color: ["red", "green", "blue"],
+//   origin: "Thien long",
+//   code: "BC01",
+// };
+// pre["BC02"] = {
+//   name: "but chi",
+//   price: 8000,
+//   amount: 90,
+//   color: ["red", "green"],
+//   origin: "Hong ha",
+//   code: "BC02",
+// };
+
+// const key = "abc";
+// const obj = {};
+// // obj.abc = "Phong2";
+// // obj["abc"] = "Phong2";
+// obj[key] = "Phong2";
+
+const result7 = product.reduce(function (pre, next) {
+  pre[next.code] = next;
+  return pre;
+}, {});
+console.log(result7);
+
+const tempArr = [1, 2, 3, 4, 5]; // 0
+// 0+1 => 1
+// 1+2 => 3
+// 3+3 => 6
+// 6+4 => 10
+// 10+5 => 15
+const sum = tempArr.reduce(function (pre, next) {
+  const result = pre + next;
+  return result;
+}, 0);
+console.log(sum);
