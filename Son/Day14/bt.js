@@ -89,7 +89,12 @@ console.log(newStudents)
   
   product.forEach(function(item) {
     const colors = item.color.join("-");
-    console.log(`Sản phẩm ${item.name}, msp ${item.code}: giá bán ${item.price} vnd, có các màu ${colors}, được phân phối bởi công ty ${item.origin} , Hàng tồn:  ${item.amount}`)
+    console.log(`Sản phẩm ${item.name}, 
+      msp ${item.code},
+      giá bán ${item.price} vnd, 
+      có các màu ${colors}, 
+      được phân phối bởi công ty ${item.origin} , 
+      Hàng tồn:  ${item.amount}`)
   });
 
 
@@ -105,7 +110,7 @@ console.log(newStudents)
     if(item.code === "BC04"){
         item.color = item.color.push("purple");
     }
-    item.name = item.name.toLocaleUpperCase();
+    item.name = item.name.toUpperCase();
     return item;
     });
     console.log(a);
