@@ -92,3 +92,4 @@ function ptBac2(a, b, c) {
 }
 console.log(ptBac2(1, 2, 3));
 // Câu 13:  Viết hàm myFunA, nhận vào một tham số và chỉ thực hiện console.log số đó ra,   Viết hàm myFuncB , nhận vào một 2 tham số, tham số thứ nhất là một đoạn text bất kỳ,  tham số thứ 2 là một hàm callback, hàm  myFuncB này thực hiện 2 dòng console.log với dữ liệu là tham số thứ nhất. thực hiện gọi hàm callback với tham số là 100 ở giữa 2 dòng  console.log  này
+
