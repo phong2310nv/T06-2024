@@ -7,9 +7,22 @@ const students = [
 ];
 
 // Hiển thị danh sách học sinh có điểm trung bình lớn hơn 90
-
+const array = students.filter(function (std) {
+  const aver = (std.scores[0] + std.scores[1] + std.scores[2]) / 3;
+  return aver > 90;
+});
+console.log(array);
 // Tạo một mảng mới với các thông tin điểm mỗi môn được lưu vào từng key
-
+const array1 = students.map(function (std) {
+  const object = {
+    name: std.name,
+    toan: std.scores[0],
+    ly: std.scores[1],
+    hoa: std.scores[2],
+  };
+  return object;
+});
+console.log(array1);
 // Bài 2: Cho mảng products sau:
 const product = [
   {
@@ -67,11 +80,27 @@ const product = [
 // Hàng tồn:  e"
 // Trong đó, a là tên sp, b là mã sp, c là giá bán, xyz là các màu
 // của sản phẩm, d là nhà cung cấp, e là số lượng tồn kho.
+product.forEach(function (pd) {
+  let str = ` Sản phẩm: ${pd.name} 
+  MSP: ${pd.code}
+  Giá bán: ${pd.price} VND
+  Các màu: ${pd.color}
+  Công ty: ${pd.origin}
+  Hàng tồn: ${pd.amount}
+  `;
+  console.log(str);
+});
 
 // Câu 2: sử dụng một hàm đã học của array để tạo ra một mảng sản phẩm mới ,
 // với mức giá của sản phẩm có mã "BC05" tăng lên 2000, và sản phẩm có mã "BC04" thêm màu "purple",
 // tất cả tên của sản phẩm được viết hoa.
-
+const array2 = product.map(function (pd) {
+  const arr = {
+    name: pd.name,
+    
+  }
+  
+})
 //  Câu 3: sử dụng hàm của array để lọc ra
 // những sản phẩm có lượng hàng tồn kho nhỏ hơn 10 và có giá ít nhất 8000.
 

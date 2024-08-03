@@ -131,6 +131,7 @@ function findNtPairs(n) {
   }
   if (pairs.length === 0) {
     console.log(`Không có cặp số nguyên tố nào có tổng bằng ${n}`);
+    
   } else {
     pairs.forEach((pair) => {
       console.log(`(${pair[0]}, ${pair[1]})`);
@@ -289,19 +290,17 @@ totalInventor(inFoSp);
 // Bài 12: Viết một hàm nhận vào một mảng các học sinh , mỗi học sinh có 2 thông tin là name(tên) và và score (điểm) ,
 //  hiển thị ra màn hình console tên của học sinh có điểm cao nhất
 
-
-
-const  arrStudents = [
-    {name : 'Nguyen Van cong', score: 9},
-    {name : 'Nguyen Van Phu', score: 7}
-  ]
-function scoreStudentMax (arrst){
-  let topStudent  = arrst[0];
-    for (const student of arrStudents) {
-      if (student.score > topStudent.score) {
-        topStudent = student;
+const arrStudents = [
+  { name: "Nguyen Van cong", score: 9 },
+  { name: "Nguyen Van Phu", score: 7 },
+];
+function scoreStudentMax(arrst) {
+  let topStudent = arrst[0];
+  for (const student of arrStudents) {
+    if (student.score > topStudent.score) {
+      topStudent = student;
     }
-    }
-    console.log(`Học sinh có điểm cao nhất là: ${topStudent.name}`);
+  }
+  console.log(`Học sinh có điểm cao nhất là: ${topStudent.name}`);
 }
-scoreStudentMax(arrStudents)
+scoreStudentMax(arrStudents);
