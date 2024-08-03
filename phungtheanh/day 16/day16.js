@@ -65,6 +65,6 @@ prirntPersonDetails(person);
 //cau 6
 const numbers1 = [1, 2, 3, 4, 5, 6];
 
-const eveNumbers numbers1.filter(number => number % 2 == 0);
+const eveNumbers = numbers1.filter ( number => number % 2 === 0);
 
 console.log(eveNumbers);
