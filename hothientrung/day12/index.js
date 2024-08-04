@@ -147,3 +147,4 @@ const students = [
         { name: "David", scores: [80, 85, 75] },
         { name: "Eve", scores: [95, 100, 90] }
     ];
+    alert("hello")
