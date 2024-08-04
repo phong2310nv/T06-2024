@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title">
+      Hello world !!
+      <span> Phong</span>
+    </h1>
+    <p class="content p1">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
+      voluptas!
+    </p>
+    <p class="content p2">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
+      voluptas!
+    </p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <button id="btn-clickMe">Click Me</button>
+    <button id="btn-clickYou">Click You</button>
+    <button id="clearEvent" onclick="clearEvent()">Clear event</button>
+
+    <input type="text" name="name" placeholder="Input Name" />
+    <textarea name="description" placeholder="something about you"></textarea>
+    <label>
+      Is Married
+      <input type="checkbox" name="isMarried" />
+    </label>
+    <input type="file" name="avatar" multiple />
+    <select name="favorite">
+      D
+      <option value="">Choose one</option>
+      <option value="tennis">Tennis</option>
+      <option value="soccer">Soccer</option>
+      <option value="swimming">Swimming</option>
+    </select>
+    <div style="display: flex">
+      <div>Male:<input type="radio" name="gender" value="male" checked /></div>
+      <div>Female:<input type="radio" name="gender" value="female" /></div>
+      <div>
+        Other
+        <input type="radio" name="gender" value="other" />
+      </div>
+    </div>
+    <div>
+      <button onclick="submit()">Submit</button>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
