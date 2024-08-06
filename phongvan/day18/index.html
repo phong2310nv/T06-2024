@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <input type="text" name="name" placeholder="Input Name" />
+      </div>
+      <div>
+        <textarea
+          name="description"
+          placeholder="something about you"
+        ></textarea>
+      </div>
+      <div>
+        <label>
+          Is Married
+          <input type="checkbox" name="isMarried" />
+        </label>
+      </div>
+      <div>
+        <input type="file" name="avatar" />
+      </div>
+      <div>
+        <select name="favorite">
+          <option value="">Choose one</option>
+          <option value="tennis">Tennis</option>
+          <option value="soccer">Soccer</option>
+          <option value="swimming">Swimming</option>
+        </select>
+      </div>
+      <div style="display: flex">
+        <div>
+          Male:<input type="radio" name="gender" value="male" checked />
+        </div>
+        <div>Female:<input type="radio" name="gender" value="female" /></div>
+        <div>
+          Other
+          <input type="radio" name="gender" value="other" />
+        </div>
+      </div>
+      <div>
+        <button onclick="submit('')">Submit</button>
+      </div>
+    </div>
+    <div>
+      <!-- <p>Name: <span id="display-name"></span></p> -->
+      <p>Data user</p>
+      <ul id="user-display"></ul>
+    </div>
+    <div>
+      <button id="btn-red" data-color="red">Red</button>
+      <button onclick="changeColorTo('green')" data-color="green">Green</button>
+      <button onclick="changeColorTo('blue')">Blue</button>
+      <button onclick="changeColorTo('yellow')">Yellow</button>
+      <p id="changeColor">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+        praesentium tenetur soluta ipsam earum, harum quia? Illo numquam rerum
+        hic.
+      </p>
+    </div>
+    <div>
+      <img width="100" id="imgMain" src="" alt="" />
+      <img width="100" class="myImg" src="./cat1.avif" alt="" />
+      <img width="100" class="myImg" src="./cat2.webp" alt="" />
+      <img width="100" class="myImg" src="./cat3.jpg" alt="" />
+      <img width="100" class="myImg" src="./cat4.webp" alt="" />
+    </div>
+    <div>
+      <h2>Todo list</h2>
+      <div>
+        <input id="todoInput" type="text" />
+        <button onclick="addTodo()">Add</button>
+        <ul id="todoDisplay"></ul>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
