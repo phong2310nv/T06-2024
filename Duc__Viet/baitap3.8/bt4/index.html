@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Duc__Viet/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css"
+        integrity="sha512-i1b/nzkVo97VN5WbEtaPebBG8REvjWeqNclJ6AItj7msdVcaveKrlIIByDpvjk5nwHjXkIqGZscVxOrTb9tsMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/Duc__Viet/baitap3.8/bt4/style.css">
+</head>
+<body>
+    <div class="student-info mt-5">
+        <div class="container">
+            <div class="student-info-wrapper">
+                <form action="">
+                <h1>Thông tin sinh viên</h1>
+                <div class="form-group row">
+                <label for="studentID" class="col-sm-2 col-form-label">Mã sinh viên:</label>
+                <div class="col-sm-10">
+                <input type="text"  id="studentID" placeholder="Mã sinh viên">
+                </div>
+                </div>
+                <div class="form-group row">
+                    <label for="studentName" class="col-sm-2 col-form-label">Họ và tên:</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="studentName" placeholder="Nhập họ tên">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="studentBirth" class="col-sm-2 col-form-label">Năm sinh:</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="studentBirth" placeholder="Nhập năm sinh">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="MathScore" class="col-sm-2 col-form-label">Điểm môn Toán:</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="MathScore">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="PhysicScore" class="col-sm-2 col-form-label">Điểm môn Lý:</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="PhysicScore">
+                    </div>
+                </div>
+                <div class="cta-button">
+                <button class="add-info">
+                    Thêm
+                </button>
+              <button class="reset-info">
+                Reset
+              </button>
+            </div>
+                
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Mã SV</th>
+                    <th>Tên</th>
+                    <th>Năm Sinh</th>
+                    <th>Môn Toán</th>
+                    <th>Môn Lý</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody">
+                <!-- Rows will be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/Duc__Viet/baitap3.8/bt4/scripts.js"></script>
+</body>
+</html>
