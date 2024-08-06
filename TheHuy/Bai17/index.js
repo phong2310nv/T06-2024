@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
         });
     } else {
-        console.error('Button with ID "red" not found.');
+        console.error('Button red not found.');
     }
 
     if (btnClickBlue) {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
         });
     } else {
-        console.error('Button with ID "blue" not found.');
+        console.error('Button blue not found.');
     }
 });
 
