@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name"><br><br>
+
+
+        <label for="country">Quê quán</label>
+        <select name="country" id="country">
+            <option value="0">Quê quán</option>
+            <option value="1">Hưng Yên</option>
+            <option value="2">Hà Nội</option>
+            <option value="3">Thái Nguyên</option>
+            <option value="4">Vĩnh Phúc</option>
+            <option value="5">Thái Bình</option>
+        </select><br><br>
+
+
+        <label for="gender">Giới tính</label><br>
+        <label for="male">Nam</label>
+        <input type="radio" name="gender" value="Nam" id="male">
+        <label for="female">Nữ</label>
+        <input type="radio" name="gender" value="Nữ" id="female">
+        <label for="other">Khác</label>
+        <input type="radio" name="gender" value="Khác" id="other"><br><br>
+
+
+        <label for="like">Sở thích</label><br>
+        <label for="book">Sách</label>
+        <input type="checkbox" name="like" value="Sách" id="book">
+        <label for="shopping">Mua sắm</label>
+        <input type="checkbox" name="like" value="Mua sắm" id="shopping">
+        <label for="swimming">Bơi</label>
+        <input type="checkbox" name="like" value="Bơi" id="swimming"><br><br>
+
+        <button type="button" onclick="submitForm()">Hiển thị</button>
+
+    </form>
+    <div id="output"></div>
+<script src="index.js"></script>
+</body>
+</html>
