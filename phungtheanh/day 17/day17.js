@@ -16,7 +16,6 @@ document.getElementById('displayButton').addEventListener('click', function() {
 });
 
 //cau 2
-document.addEventListener('DOMContentLoaded', (event) => {
     const btnClickRed = document.getElementById("red");
     const btnClickBlue = document.getElementById("blue");
 
@@ -43,6 +42,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     } else {
         console.error('Button with ID "blue" not found.');
     }
-});
 
+    console.dir("img");
 
+    //cau 3
+    
+    document.querySelectorAll('.thumbnail').forEach(img => {
+        img.addEventListener('click', (event) => {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = event.target.src;
+        });
+    });
