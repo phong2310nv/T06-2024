@@ -34,8 +34,11 @@ console.log(newPeople)
 // chuỗi thứ 2 trở đi, cách nhau bởi chuỗi đầu tiên
 // VD: myFun('-','1','2')  => "1-2"
 
-
-
+const myFun = (params1, ...params)=>{
+  const resutl = params.join(params1);
+  return resutl;
+};
+console.log(myFun("-", "1", "2", "3", "4", "5"));
 
 const person = {
   name: "Jane",
