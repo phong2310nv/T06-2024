@@ -185,3 +185,13 @@ const Cooking = async (input) => {
   }
 };
 Cooking("một miếng thịt");
+
+const someData = {
+  name: "Phong2",
+};
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  body: JSON.stringify(someData),
+});
+
+fetch("https://jsonplaceholder.typicode.com/posts");

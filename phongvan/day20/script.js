@@ -162,3 +162,22 @@ tranThitPM("Cục thịt")
 // };
 // CreateArray(1, 2, 3).forEach();
 // CreateArray(4, 5, 6).forEach();
+const someData = {
+  title: "Phong2",
+};
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  body: JSON.stringify(someData),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
+
+const fetchPost = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "GET",
+  });
+  const jsonResponse = await response.json();
+  console.log(jsonResponse);
+};
