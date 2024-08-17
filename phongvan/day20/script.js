@@ -108,26 +108,55 @@ const nuongThitPM = (data) => {
   });
 };
 
-tranThitPM("Cục thịt")
-  .then((val1) => {
-    return uopThitPM(val1);
-  })
-  .then((val2) => {
-    return nuongThitPM(val2);
-  })
-  .then((val3) => {
+// tranThitPM("Cục thịt")
+//   .then((val1) => {
+//     return uopThitPM(val1);
+//   })
+//   .then((val2) => {
+//     return nuongThitPM(val2);
+//   })
+//   .then((val3) => {
+//     console.log(val3);
+//     return "Done";
+//   })
+//   .then((val4) => {
+//     console.log(val4);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   })
+//   .finally(() => {
+//     console.log("Đã xong mọi việc");
+//   });
+
+const cooking = async (input) => {
+  try {
+    const val1 = await tranThitPM(input);
+    console.log(val1);
+    // if (true) {
+    //   const valx = await doSomething(val1);
+    // }
+    const val2 = await uopThitPM(val1);
+    console.log(val2);
+    const val3 = await nuongThitPM(val2);
     console.log(val3);
-    return "Done";
-  })
-  .then((val4) => {
-    console.log(val4);
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-  .finally(() => {
-    console.log("Đã xong mọi việc");
-  });
+    return val3;
+  } catch (error) {
+    console.log("Lỗi: ", error);
+    return null;
+  } finally {
+    console.log("Alway run");
+  }
+};
+cooking("Cục thịt").then((data) => {
+  if (data) {
+    console.log(`Thưởng thức: ${data}`);
+  } else {
+    console.log(`Đem vứt `);
+  }
+});
+// const cooking2 = async function () {};
+// async function cooking3() {}
 
 // const myPromise = new Promise((resolve, reject) => {
 //   setTimeout(() => {
@@ -162,22 +191,27 @@ tranThitPM("Cục thịt")
 // };
 // CreateArray(1, 2, 3).forEach();
 // CreateArray(4, 5, 6).forEach();
-const someData = {
-  title: "Phong2",
-};
-fetch("https://jsonplaceholder.typicode.com/posts", {
-  method: "POST",
-  body: JSON.stringify(someData),
-})
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  });
+// const someData = {
+//   title: "Phong2",
+// };
 
-const fetchPost = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    method: "GET",
-  });
-  const jsonResponse = await response.json();
-  console.log(jsonResponse);
-};
+
+// const doSomething = (data) => {
+//   try {
+//     if (data > 0) {
+//       console.log("Data valid");
+//     } else {
+//       // console.log("Data invalid");
+//       throw Error("Data invalid 1");
+//     }
+//   } catch (error) {
+//     console.log(error.message);
+//     throw Error("Data invalid 2");
+//   }
+// };
+// try {
+//   doSomething(-9);
+// } catch (error) {
+//   console.log(error.message);
+// }
+// console.log("Abc");
