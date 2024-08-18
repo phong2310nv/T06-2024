@@ -54,7 +54,6 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="editInforUser">
-
               <form class="row g-3" id="editInforForm">
                 <input type="text" hidden id="editInforId" />
                 <div class="col-md-4">
@@ -99,10 +98,10 @@
                     <option value="true">Married</option>
                   </select>
                 </div>
-                <div class="col-12">
-                  <button class="btn btn-primary" id="submitFormEdit" data-bs-dismiss="modal" type="submit">Submit form</button>
-                </div>
               </form>
+              <div class="col-12">
+                <button class="btn btn-primary" id="submitFormEdit" onclick="handleEditSubmit()" data-bs-dismiss="modal" type="submit">Submit form</button>
+              </div>
             </div>
           </div>
         </div>
@@ -164,6 +163,23 @@
               <div class="col-12">
                 <button class="btn btn-primary"  onclick="handleSubmit()" data-bs-dismiss="modal">Submit form</button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="successDelete" tabindex="-1" aria-labelledby="deleteUser" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4>Cảnh báo:</h4>
+            </div>
+            <div class="modal-body">
+              <h5>Xác nhận xóa User này ?</h5>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close" >Hủy</button>
+              <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" onclick="removeUser()">Xác nhận</button>
             </div>
           </div>
         </div>

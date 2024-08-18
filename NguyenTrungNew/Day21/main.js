@@ -57,6 +57,9 @@ const editUser = async (id, payload) => {
   try {
     const reponse = await fetch(`${API_URL}/users/${id}`, {
       method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
       body: JSON.stringify(payload),
     });
     console.log("check");
@@ -76,10 +79,11 @@ const deleteUser = async (id) => {
     return await reponse.json();
   } catch (error) {
     console.error(error);
-  }finally{
+  } finally {
     loadingElement.innerHTML = "";
   }
 };
+
 
 const renderDataTable = (arr = []) => {
   tbodyDataUser.innerHTML = arr
@@ -97,7 +101,7 @@ const renderDataTable = (arr = []) => {
                         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editInforUser" onclick='handleEditInforUser(${JSON.stringify(
                           user
                         )})'>Edit</button>
-                        <button class="btn btn-danger" onclick='removeUser(${user.id})'>Delete</button>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#successDelete" onclick="valIdDelete(${user.id})">Delete</button>
                     </div>
                 </td>
             </tr>
@@ -106,6 +110,7 @@ const renderDataTable = (arr = []) => {
     .join("");
   //Cần chuyển đổi qua JSON.stringify để truyền vào hàm.
 };
+
 const handleDetail = async (id) => {
   try {
     const reponse = await fetch(`${API_URL}/users/${id}`);
@@ -130,7 +135,7 @@ const renderUserDetail = (user) => {
     <p>Address: <span>${user.address}</span></p>
     <p>Description: <span>${user.description}</span></p>
     <p>Duration: <span>${user.duration}</span></p>
-    <p>Married: <span>${user.married ? "Đã kết hôn" : "Độc thân"}</span></p>
+    <p>Married: <span>${user.married}</span></p>
     <p>Favorites: <span>${user.favorites && "Null"}</span></p>
     <p>CreatedAt: <span>${createAt}</span></p>
   </div>
@@ -148,8 +153,8 @@ const handleEditInforUser = (user) => {
   editGender.value = user.gender;
 };
 
-editForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+
+const handleEditSubmit = () => {
   const id = editId.value;
   const name = editName.value;
   const address = editAddress.value;
@@ -169,12 +174,12 @@ editForm.addEventListener("submit", (e) => {
     gender,
   };
   editUser(id, payload).then((response) => {
-    if(response){
+    if (response) {
       fetchUserData();
+      alert("Sửa thông tin user thành công!");
     }
   });
-});
-
+};
 
 const handleSubmit = () => {
   const name = addName.value;
@@ -183,7 +188,7 @@ const handleSubmit = () => {
   const duration = addDuration.value;
   const salary = addSalary.value;
   const married = addMarried.value;
-  const gender = "Male"; // em đã cố để mặc định cho giới tính là Male nhưng vẫn không đổi được.
+  const gender = addGender.value;
 
   const payload = {
     name,
@@ -195,13 +200,13 @@ const handleSubmit = () => {
     gender,
   };
   createNewUser(payload).then((response) => {
-    if(response){
+    if (response) {
       fetchUserData();
+      alert("Thêm user mới thành công!");
     }
   });
   reset();
-}
-
+};
 
 const reset = () => {
   addName.value = "";
@@ -211,13 +216,21 @@ const reset = () => {
   addSalary.value = "";
   addMarried.value = "";
   addGender.value = "";
-};
-
-
-const removeUser = (id) => {
-  deleteUser(id).then(reponse => {
-    if(reponse){
-      fetchUserData();
-    }
-  })
 }
+
+let userIdRemove = 0;
+const valIdDelete = (id) => {
+  userIdRemove = id;
+}
+
+const removeUser = () => {
+  const id = userIdRemove;
+  
+  deleteUser(id).then((reponse) => {
+    if (reponse) {
+      fetchUserData();
+      alert("Xóa thành công!");
+    }
+  });
+  
+};
