@@ -23,6 +23,8 @@ const addGender = document.getElementById("addNewUserGender");
 const addMarried = document.getElementById("addNewUserMarried");
 const addForm = document.getElementById("addNewUserForm");
 
+
+// các hàm Call API
 const fetchUserData = async () => {
   loadingElement.innerHTML = `<p> Loading... </p>`;
   try {
@@ -82,8 +84,7 @@ const deleteUser = async (id) => {
   } finally {
     loadingElement.innerHTML = "";
   }
-};
-
+}
 
 const renderDataTable = (arr = []) => {
   tbodyDataUser.innerHTML = arr
@@ -101,7 +102,9 @@ const renderDataTable = (arr = []) => {
                         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editInforUser" onclick='handleEditInforUser(${JSON.stringify(
                           user
                         )})'>Edit</button>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#successDelete" onclick="valIdDelete(${user.id})">Delete</button>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#successDelete" onclick="valIdDelete(${
+                          user.id
+                        })">Delete</button>
                     </div>
                 </td>
             </tr>
@@ -111,6 +114,7 @@ const renderDataTable = (arr = []) => {
   //Cần chuyển đổi qua JSON.stringify để truyền vào hàm.
 };
 
+// Render từng user
 const handleDetail = async (id) => {
   try {
     const reponse = await fetch(`${API_URL}/users/${id}`);
@@ -125,9 +129,9 @@ const renderUserDetail = (user) => {
   const date = new Date(user.createdAt);
   const day = String(date.getDate()).padStart(2, "0");
   const month = String(date.getMonth() + 1).padStart(2, "0");
-  const year = date.getFullYear();
-
+  const year = date.getFullYear()
   const createAt = `${day}/${month}/${year}`;
+
   detailUserModal.innerHTML = `<div class="card">
   <div class="card-body">
     <p>Name: <span>${user.name}</span></p>
@@ -140,8 +144,9 @@ const renderUserDetail = (user) => {
     <p>CreatedAt: <span>${createAt}</span></p>
   </div>
 </div>`;
-};
+}
 
+// chức năng uppdate
 const handleEditInforUser = (user) => {
   editId.value = user.id;
   editName.value = user.name;
@@ -151,8 +156,7 @@ const handleEditInforUser = (user) => {
   editSalary.value = user.salary;
   editMarried.value = user.married;
   editGender.value = user.gender;
-};
-
+}
 
 const handleEditSubmit = () => {
   const id = editId.value;
@@ -179,8 +183,9 @@ const handleEditSubmit = () => {
       alert("Sửa thông tin user thành công!");
     }
   });
-};
+}
 
+// chức năng thêm user
 const handleSubmit = () => {
   const name = addName.value;
   const address = addAddress.value;
@@ -199,6 +204,7 @@ const handleSubmit = () => {
     married,
     gender,
   };
+
   createNewUser(payload).then((response) => {
     if (response) {
       fetchUserData();
@@ -216,21 +222,22 @@ const reset = () => {
   addSalary.value = "";
   addMarried.value = "";
   addGender.value = "";
-}
+};
+
+// Chức năng xóa
 
 let userIdRemove = 0;
 const valIdDelete = (id) => {
   userIdRemove = id;
-}
+};
 
 const removeUser = () => {
   const id = userIdRemove;
-  
+
   deleteUser(id).then((reponse) => {
     if (reponse) {
       fetchUserData();
       alert("Xóa thành công!");
     }
   });
-  
-};
+}
