@@ -1,4 +1,4 @@
-//cau 1
+// Bai 1
 document.getElementById('displayButton').addEventListener('click', function() {
     const name = document.getElementById('nameInput').value;
     const province = document.getElementById('provinceSelect').value;
@@ -15,7 +15,8 @@ document.getElementById('displayButton').addEventListener('click', function() {
     console.log(`Gender: ${gender}`);
 });
 
-//cau 2
+//Bai 2
+document.addEventListener('DOMContentLoaded', (event) => {
     const btnClickRed = document.getElementById("red");
     const btnClickBlue = document.getElementById("blue");
 
@@ -28,7 +29,7 @@ document.getElementById('displayButton').addEventListener('click', function() {
             });
         });
     } else {
-        console.error('Button with ID "red" not found.');
+        console.error('Button red not found.');
     }
 
     if (btnClickBlue) {
@@ -40,16 +41,8 @@ document.getElementById('displayButton').addEventListener('click', function() {
             });
         });
     } else {
-        console.error('Button with ID "blue" not found.');
+        console.error('Button blue not found.');
     }
+});
 
-    console.dir("img");
 
-    //cau 3
-    
-    document.querySelectorAll('.thumbnail').forEach(img => {
-        img.addEventListener('click', (event) => {
-            const mainImage = document.getElementById('mainImage');
-            mainImage.src = event.target.src;
-        });
-    });

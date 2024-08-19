@@ -1,8 +1,4 @@
-//  b1: xây dựng ra UI
-//  b2: + làm sao để lấy đc các giá trị ở form.
-//      + hình dung data có dạng như thế nào
-//      + nó sẽ là 1 cái mảng => từng đối tượng {}
-//  b3: hiển thị ra bảng.
+
 
 let listUsers = [];
 const defaultAvatar =
@@ -211,3 +207,4 @@ const handleClearData = () => {
   localStorage.removeItem("listData");
   display([]);
 };
+

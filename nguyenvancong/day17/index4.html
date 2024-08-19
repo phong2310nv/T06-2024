@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai4</title> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <style>
         table {
             font-family: arial, sans-serif;
@@ -23,46 +24,58 @@
         }
     </style>
 </head>
+
 <body>
+    <h1 id="title"></h1>
     <p>
-        ID:
-        <input type="text" disabled id="valId">
+        Id
+        <input type="text" disabled id="valId" />
     </p>
     <p>
-        Name:
-        <input type="text" id="valName">
+        Name
+        <input type="text" id="valName" />
     </p>
     <p>
         Avatar:
-        <input type="file" id="valAvatar">
-        <img src="" id="previewAvatar">
+        <input type="file" id="valAvatar" />
+        <img src="" id="previewAvatar" />
     </p>
     <p>
-        Des:
+        Date Of Birth:
+        <input type="date" id="valDob" />
+    </p>
+    <p>
+        Address
+        <input type="text" id="valAddress" />
+    </p>
+    <p>
+        Salary
+        <input type="number" id="valSalary" />
+    </p>
+    <p>
+        Des
         <textarea rows="5" id="valDes"></textarea>
     </p>
     <p>
-        Gender:
-        <br>
-        <input type="radio" name="gender" value="Male" />Male
-        <input type="radio" name="gender" value="Female" />Female
-        <input type="radio" name="gender" value="Other" />Other
+        Gender
+        <input type="radio" name="gender" value="Male" /> Male
+        <input type="radio" name="gender" value="Female" /> Female
+        <input type="radio" name="gender" value="Other" /> Other
     </p>
     <p>
         Married:
-        <input type="checkbox" id="valMarried">
+        <input type="checkbox" id="valMarried" />
     </p>
     <p>
         Ducation:
         <select id="valDucation">
-            <option value="1"> 1 năm</option>
-            <option value="2"> 2 năm</option>
-            <option value="3"> 3 năm</option>
-            <option value="4"> 4 năm</option>
-            <option value="5"> 5 năm</option>
+            <option value="1">1 năm</option>
+            <option value="2">2 năm</option>
+            <option value="3">3 năm</option>
+            <option value="4">4 năm</option>
+            <option value="5">5 năm</option>
         </select>
     </p>
-
     <button id="btnSubmit" onclick="handleSubmit()" style="cursor: pointer">Save</button>
     <button onclick="reset()" style="cursor: pointer">Reset</button>
     <button onclick="handleClearData()">Clear Data</button>
@@ -70,7 +83,7 @@
     <p>
         <input type="text" placeholder="Search Name..." id="valSearchName" />
     </p>
-    <p> 
+    <p>
         Married:
         <input type="radio" name="searchMarried" value="all" /> All
         <input type="radio" name="searchMarried" value="true" /> Married
@@ -100,7 +113,7 @@
     </table>
     </p>
     <p id="no-data" style="text-align: center"></p>
-
     <script src="main4.js"></script>
 </body>
+
 </html>
