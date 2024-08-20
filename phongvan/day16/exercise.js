@@ -40,7 +40,6 @@ const newPeople2 = people.map((oldItem) => ({
 }));
 console.log(newPeople2);
 
-// Viết một hàm nhận vào danh sách các chuỗi với số lượng bất kỳ, trả ra một chuỗi mới được ghép bởi các
 // chuỗi thứ 2 trở đi, cách nhau bởi chuỗi đầu tiên
 // VD: myFun('-','1','2')  => "1-2"
 
