@@ -63,7 +63,9 @@ const addUser = async () => {
       {
         method: "POST",
         body: JSON.stringify(payload),
-        "Content-Type": "application/json",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
     );
     const user = await response.json();
@@ -113,5 +115,5 @@ const editUser = async (id) => {
     console.log(error);
   }
 };
-// CRUD 
+// CRUD
 //Create Read Update Delete
