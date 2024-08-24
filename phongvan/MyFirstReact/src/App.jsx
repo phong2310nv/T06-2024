@@ -1,13 +1,13 @@
-import Header from "./components/Header";
-import NavBar from "./components/NavBar";
-import UserForm from "./components/UserForm";
-import "./style.css";
+import StateDemo from "./Demos/State";
+import StateAndPropDemo from "./Demos/StateAndProps";
+import DemoVariable from "./Demos/Variable";
+import "./style.scss";
 const App = () => {
   return (
-    <div className='abc'>
-      {/* <UserForm /> */}
-      <NavBar />
-      <Header />
+    <div className="abc">
+      <StateDemo />
+      <DemoVariable />
+      <StateAndPropDemo />
     </div>
   );
 };
