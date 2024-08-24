@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Duc__Viet/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css"
+        integrity="sha512-i1b/nzkVo97VN5WbEtaPebBG8REvjWeqNclJ6AItj7msdVcaveKrlIIByDpvjk5nwHjXkIqGZscVxOrTb9tsMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/Duc__Viet/baitap3.8/bt5/styles.css">
+</head>
+<body>
+    <div class="form-info mt-5">
+        <div class="container">
+            <div class="form-info-wrap">
+                <div class="form-hd">
+                    <h1> Đăng ký để nhận thông tin mới nhất</h1>
+                </div>
+                <div class="form-body">
+                    <div class="forn-group">
+                <label for="ID">ID</label>
+                <input type="text" id="ID" name="ID" placeholder="Enter your ID">
+                </div>
+                <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="avatar">Avartar</label>
+                    <input type="file" id="avatar" name="avatar">
+                    <img src="" alt="" class="show-img">
+                    
+                    </div>
+                    <div class="form-group d-flex flex-column">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="5" placeholder="Enter your description" style="width: 40%;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <input type="radio" name="gender" id="male" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="female" value="female">
+                        <label for="female">Female</label>
+                        <input type="radio" name="gender" id="other" value="other">
+                        <label for="other">Other</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <select name="duration" id="duration">
+                            <option value="1">1 month</option>
+                            <option value="3">3 months</option>
+                            <option value="6">6 months</option>
+                            <option value="12">12 months</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-cta mt-5">
+                <button class="btn save-btn">Save</button>
+                <button class="btn reset-btn">Reset</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="search-box mt-5">
+        <div class="container">
+            <input type="text" id="search-input" placeholder="Search by ID, Name, Email">
+            <button class="btn search-btn">Search</button>
+        </div>
+    </div>
+    <section class="result">
+        <div class="container">
+        <table class="result-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Avatar</th>
+                    <th>Description</th>
+                    <th>Gender</th>
+                    <th>Duration</th>
+                    <th>Code</th> <!-- Cột để hiển thị mã code -->
+                </tr>
+            </thead>
+            <tbody>
+    <!-- Kết quả tìm kiếm sẽ được chèn vào đây -->
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/Duc__Viet/baitap3.8/bt5/scripts.js"></script>
+</body>
+</html>
