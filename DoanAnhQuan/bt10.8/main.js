@@ -10,7 +10,9 @@ const valDucation = document.getElementById("valDucation");
 const previewAvatar = document.getElementById("previewAvatar");
 const tbody = document.querySelector("tbody");
 const btnSubmit = document.getElementById("btnSubmit");
+const valSearch = document.getElementById("valSearchName");
 let users = [];
+let usersStorage = localStorage.getItem("user");
 avatar.onchange = (e) => {
     const file = e.target.files[0];
     const urlAvatar = URL.createObjectURL(file);
@@ -37,7 +39,22 @@ const handleSubmit = () => {
         avatar,
         gender,
     };
-    users = [...users, usesNew];
+    if (idVal.value) {
+        console.log("function Edit");
+        users = users.map((item) => {
+          if (item.id === +idVal.value) {
+            return {
+              ...usesNew,
+              id: item.id,
+            };
+          }
+          return item;
+        });
+        btnSubmit.innerText = "Save";
+      } else {
+        users = [...users, usesNew];
+      }
+    localStorage.setItem("user", JSON.stringify(users));
     display(users);
     reset();
 };
@@ -64,11 +81,30 @@ const display = (arr = []) => {
         })
         .join("");
 };
+display(JSON.parse(usersStorage))
 const handleDelete = (id) => {
     const newUsers = users.filter((item) => item.id !== id);
     users = [...newUsers];
+    localStorage.setItem("user", JSON.stringify(users));
     display(users);
 };
+const handleEdit = (id) => {
+    const editUser = users.find(item => item.id);
+    if(editUser){
+        idVal.value = id;
+        valName.value = editUser.userName;
+        previewAvatar.setAttribute("src", editUser.avatar);
+        ValDes.value = editUser.des;
+        valDucation.value = editUser.duction;
+        valMarried.checked = editUser.isMarried;
+        valGender.forEach((item) => {
+            if (item.value === editUser.gender) {
+              item.checked = true;
+            }
+          });
+    }
+    btnSubmit.innerText = "FIX";
+}
 const reset = () => {
     idVal.value = "";
     valName.value = "";
@@ -81,4 +117,16 @@ const reset = () => {
         item.checked = false;
       }
     });
+    
   };
+  const handleSubmitSearch = () =>{
+    const search = valSearch.value.toLowerCase();
+    const newSearch = users.filter(user => user.userName.toLowerCase().includes(search));
+    display(newSearch);
+    
+  }
+  const resetSearch = () =>{
+    display(users);
+    valSearch.value = "";
+  }
+  
