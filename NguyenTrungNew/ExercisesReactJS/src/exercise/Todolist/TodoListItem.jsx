@@ -1,7 +1,7 @@
 import React from "react";
 
-function TodoListItem({ data, onclick,onChangeStatus }) {
-  const {id,toDo, status} = data;
+function TodoListItem({ data, onclick, onChangeStatus }) {
+  const { id, toDo, status } = data;
   return (
     <div className="flex justify-between border-t-2 border-b-2 border-gray-100 shadow items-center m-2 p-3">
       <p className={`${status ? "" : "line-through text-gray-300"}`}>{toDo}</p>

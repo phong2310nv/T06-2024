@@ -7,29 +7,32 @@ function Todolist() {
   const inputRef = useRef();
 
   const handleSubmitForm = () => {
-    setListTodo([...listTodo, {
-      id: Date.now(),
-      toDo: inputTodo,
-      status : true,
-    }]);
+    setListTodo([
+      ...listTodo,
+      {
+        id: Date.now(),
+        toDo: inputTodo,
+        status: true,
+      },
+    ]);
     setInputTodo("");
     inputRef.current.focus();
   };
 
   const handleRemoveItem = (id) => {
-    setListTodo(listTodo.filter(item => item.id !== id));
-  }
+    setListTodo(listTodo.filter((item) => item.id !== id));
+  };
 
   const handleChangeStatus = (id) => {
-    console.log(id);
-    
-    setListTodo(listTodo.map(item => {
-      if(item.id === id){
-        return {...item, status: !item.status,}
-      }
-      return item;
-    }))
-  } 
+    setListTodo(
+      listTodo.map((item) => {
+        if (item.id === id) {
+          return { ...item, status: !item.status };
+        }
+        return item;
+      })
+    );
+  };
 
   return (
     <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
@@ -56,7 +59,14 @@ function Todolist() {
           </div>
         </div>
         {listTodo.map((item, index) => {
-          return <TodoListItem  data={item} onclick={handleRemoveItem} onChangeStatus={handleChangeStatus} key={index} />
+          return (
+            <TodoListItem
+              data={item}
+              onclick={handleRemoveItem}
+              onChangeStatus={handleChangeStatus}
+              key={index}
+            />
+          );
         })}
       </div>
     </div>
