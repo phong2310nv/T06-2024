@@ -1,12 +1,14 @@
 import React, { useState, useRef } from "react";
-import ResultTable from "./Result";
+import { useScreenWidth } from "../../hook";
 import { Input, Button } from "../../component";
 import defaultAvt from "./accets/defaultAvt.jpg";
+import { DesktopViewTable, MobileViewTable } from "./Result";
 
 function UserManagement() {
   const [toggleTextBtn, setToggleTextBtn] = useState("Save");
   const [listUsers, setListUsers] = useState([]);
   const idRef = useRef();
+  const withResize = useScreenWidth();
   const [user, setUser] = useState({
     fullName: "",
     doB: "",
@@ -275,36 +277,32 @@ function UserManagement() {
             className="w-[300px]"
             placeholder="Search for user by name..."
           />
-          <Button onClick={handleSearchName} className="ml-4 bg-green-500 text-white border-white">Search</Button>
+          <Button
+            onClick={handleSearchName}
+            className="ml-4 bg-green-500 text-white border-white"
+          >
+            Search
+          </Button>
         </div>
-        <table className="w-full border mt-4 ">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>DoB</th>
-              <th>Address</th>
-              <th>Avt</th>
-              <th>Salary</th>
-              <th>Description</th>
-              <th>Gender</th>
-              <th>Married</th>
-              <th>Duration</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listUsers.map((user, index) => (
-              <ResultTable
-                key={user.id}
-                user={user}
-                index={index}
-                editUser={editValue}
-                removeUser={removeUser}
-              />
-            ))}
-          </tbody>
-        </table>
+        {listUsers.length > 0 ? (
+          withResize >= 1024 ? (
+            <DesktopViewTable
+              listUsers={listUsers}
+              editUser={editValue}
+              removeUser={removeUser}
+            />
+          ) : (
+            <MobileViewTable
+              listUsers={listUsers}
+              editUser={editValue}
+              removeUser={removeUser}
+            />
+          )
+        ) : (
+          <div className="my-5">
+            <p className="text-center italic font-light">No users available</p>
+          </div>
+        )}
       </div>
     </div>
   );
