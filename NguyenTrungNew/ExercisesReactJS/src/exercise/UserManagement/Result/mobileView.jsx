@@ -4,7 +4,7 @@ function MobileView({ listUsers, editUser, removeUser }) {
   return (
     <div>
       <div>
-        {listUsers.map((item, index) => {
+        {listUsers.map((item) => {
           const {
             address,
             avatar,

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useScreenWidth } from "../../hook";
-import { Input, Button } from "../../component";
+import { Input, Button, TextArea, Select } from "../../component";
 import defaultAvt from "./accets/defaultAvt.jpg";
 import { DesktopViewTable, MobileViewTable } from "./Result";
 
@@ -114,7 +114,6 @@ function UserManagement() {
             <Input
               type="text"
               name="fullName"
-              className=" w-full lg:w-[300px]"
               placeholder="Enter your full name here"
               value={user.fullName}
               onChange={changeValue}
@@ -125,7 +124,6 @@ function UserManagement() {
             <Input
               type="date"
               name="doB"
-              className="w-full lg:w-[300px]"
               value={user.doB}
               onChange={changeValue}
             />
@@ -135,7 +133,6 @@ function UserManagement() {
             <Input
               type="text"
               name="address"
-              className="w-full lg:w-[300px]"
               placeholder="Enter your address here"
               value={user.address}
               onChange={changeValue}
@@ -150,18 +147,7 @@ function UserManagement() {
             </div>
             <label className="block">
               <span className="sr-only">Chọn avatar của bạn</span>
-              <input
-                onChange={changeValue}
-                type="file"
-                name="avatar"
-                className="block w-full text-sm text-slate-500
-                file:mr-4 file:py-2 file:px-4 file:rounded-full 
-                file:border-orange-500 font-semibold file:bg-orange-500
-                file:text-white
-                file:cursor-pointer file:transition-all file:text-xs
-                hover:file:bg-white hover:file:text-orange-500 hover:file:border-orange-500
-                "
-              />
+              <Input onChange={changeValue} type="file" name="avatar" />
             </label>
           </div>
         </form>
@@ -170,7 +156,6 @@ function UserManagement() {
             <p>Average Salary</p>
             <Input
               type="number"
-              className="w-full lg:w-[300px]"
               name="salary"
               placeholder="Enter your Salary here"
               value={user.salary}
@@ -179,9 +164,8 @@ function UserManagement() {
           </div>
           <div>
             <p>Description</p>
-            <textarea
+            <TextArea
               rows={3}
-              className="border focus:bg-gray-100 border-gray-300 px-3 py-2 rounded-lg ml-[10px] w-full lg:w-[300px] text-sm"
               placeholder="Enter your description here"
               name="description"
               value={user.description}
@@ -222,45 +206,31 @@ function UserManagement() {
               name="married"
               checked={user.married}
               onChange={changeValue}
-              className="px-[10px] py-[10px] rounded-[5px] focus:bg-orange-500 transition-all ml-0 mt-0"
             />
           </div>
           <div>
             <p>Duration</p>
-            <select
+            <Select
               name="duration"
-              className="
-              border border-gray-400 p-1 ml-[15px] rounded-lg
-              text-gray-800 cursor-pointer mt-2
-              w-full lg:w-[300px]
-             "
-              value={user.duration}
-              onChange={changeValue}
-            >
-              <option value="">-- Select here --</option>
-              <option value="1">1 year</option>
-              <option value="2">2 years</option>
-              <option value="3">3 years</option>
-              <option value="4">4 years</option>
-              <option value="5">5 years</option>
-            </select>
+              id="duration"
+              items={[
+                { label: "1 year", value: "1" },
+                { label: "2 years", value: "2" },
+                { label: "3 years", value: "3" },
+                { label: "4 years", value: "4" },
+                { label: "5 years", value: "5" },
+              ]}
+            />
           </div>
         </div>
         <div className="flex flex-row gap-4 my-7 lg:mt-0">
-          <Button
-            type="submit"
-            onClick={handleSubmit}
-            className="bg-orange-500 border-orange-500 text-white 
-          lg:hover:bg-white lg:hover:text-orange-500 lg:hover:font-medium"
-          >
+          <Button type="submit" onClick={handleSubmit} variant="orange">
             {toggleTextBtn}
           </Button>
           <Button
             type="button"
             onClick={handleResetValue}
-            className="border-orange-500 text-orange-500
-          lg:hover:bg-orange-500 lg:hover:text-white lg:hober:font-medium
-          "
+            variant="secondaryOrange"
           >
             Reset
           </Button>
@@ -268,19 +238,17 @@ function UserManagement() {
       </div>
       <div className="max-w-[1300px] w-full border bg-gray-100 mt-2 rounded-lg shadow-md p-2">
         <div>
-          <label htmlFor="searchName">Search:</label>
+          <label className="block lg:inline-block" htmlFor="searchName">
+            Search:
+          </label>
           <Input
             value={searchName}
             onChange={(e) => setSearchName(e.target.value)}
             type="text"
             name="searchName"
-            className="w-[300px]"
             placeholder="Search for user by name..."
           />
-          <Button
-            onClick={handleSearchName}
-            className="ml-4 bg-green-500 text-white border-white"
-          >
+          <Button variant="success" onClick={handleSearchName}>
             Search
           </Button>
         </div>

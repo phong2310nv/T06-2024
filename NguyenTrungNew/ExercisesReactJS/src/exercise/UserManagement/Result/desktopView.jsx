@@ -57,7 +57,7 @@ function DesktopView({ listUsers, editUser, removeUser }) {
                     onClick={() => {
                       editUser(id);
                     }}
-                    className="mr-2 border-green-500 hover:bg-green-500 hover:text-white active:bg-opacity-50 "
+                    variant = "success"
                   >
                     Edit
                   </Button>
@@ -65,7 +65,7 @@ function DesktopView({ listUsers, editUser, removeUser }) {
                     onClick={() => {
                       removeUser(id);
                     }}
-                    className="border-red-500 hover:bg-red-500 hover:text-white active:bg-opacity-50"
+                    variant = "danger"
                   >
                     Remove
                   </Button>
