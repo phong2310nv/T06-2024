@@ -66,16 +66,10 @@ function MobileView({ listUsers, editUser, removeUser }) {
                 </div>
               </div>
               <div className="flex justify-center gap-5 mt-5">
-                <Button
-                  className="border border-green-500 text-white bg-green-500 font-normal active:bg-opacity-50"
-                  onClick={() => editUser(id)}
-                >
+                <Button variant="success" onClick={() => editUser(id)}>
                   Edit
                 </Button>
-                <Button
-                  className="border border-red-500 text-white bg-red-500 font-normal active:bg-opacity-50"
-                  onClick={() => removeUser(id)}
-                >
+                <Button variant="danger" onClick={() => removeUser(id)}>
                   Remove
                 </Button>
               </div>

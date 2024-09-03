@@ -1,5 +1,4 @@
-function MyButton(props) {
-  const { children, variant = "default", ...rest } = props;
+function MyButton({ children, variant = "default", ...rest }) {
   let colorClasses = "";
   switch (variant) {
     case "default":
@@ -14,11 +13,11 @@ function MyButton(props) {
         "border-orange-500 text-orange-500 lg:hover:bg-orange-500 lg:hover:text-white lg:hober:font-medium";
       break;
     case "success":
-      colorClasses = "ml-4 bg-green-500 text-white border-white hover:bg-white hover:text-green-500 hover:border-green-500 text-green-500";
+      colorClasses =
+        "ml-4 bg-green-500 text-white border-white hover:bg-white hover:text-green-500 hover:border-green-500 text-green-500";
       break;
     case "danger":
-      colorClasses =
-        "border-red-500 hover:bg-red-500 hover:text-white";
+      colorClasses = "border-red-500 hover:bg-red-500 hover:text-white";
       break;
     default:
       break;
