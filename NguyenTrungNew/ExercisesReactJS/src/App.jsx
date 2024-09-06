@@ -1,4 +1,5 @@
 import {ExUserManagement} from './exercise'
+import "./App.css"
 
 function App() {
     return <div className='flex flex-col'>

@@ -1,4 +1,4 @@
-import { Input, Button, TextArea, Select } from "../../../component"
+import { Input, Button, TextArea, Select } from "../../../component";
 
 function UserForm(props) {
   const {
@@ -8,6 +8,8 @@ function UserForm(props) {
     changeValue,
     toggleTextBtn,
     handleResetValue,
+    errors,
+    nameRef,
   } = props;
   return (
     <div className="grid grid-cols1 lg:grid-cols-2 bg-gray-100 max-w-[1300px] shadow-md w-full  rounded-lg p-10 ">
@@ -18,10 +20,13 @@ function UserForm(props) {
           <Input
             type="text"
             name="fullName"
+            className = {`${errors.fullName && "border border-red-600 shake"}`}
             placeholder="Enter your full name here"
             value={user.fullName}
             onChange={changeValue}
+            ref={nameRef}
           />
+          {errors.fullName && <p className="text-red-600 text-xs italic mt-1 ml-1 ">{errors.fullName}</p>}
         </div>
         <div>
           <p>Data Of Birth:</p>

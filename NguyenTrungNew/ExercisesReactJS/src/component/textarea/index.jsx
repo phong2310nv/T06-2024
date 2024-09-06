@@ -1,4 +1,4 @@
-function MyTextArea(...rest) {
+function MyTextArea({...rest}) {
   return (
     <textarea
       {...rest}

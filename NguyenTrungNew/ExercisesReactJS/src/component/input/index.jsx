@@ -1,5 +1,5 @@
 function MyInput({ ...rest }) {
-  const { type } = rest;
+  const { type, className } = rest;
   const realClass =
     type === "file"
       ? ` bg-none border-none
@@ -19,7 +19,6 @@ function MyInput({ ...rest }) {
       className={` mt-2 
          read-only:text-gray-500 
         focus:bg-gray-100 border border-gray-300 
-        
         px-3 py-2 text-sm  ml-[10px]
         ${
           type === "radio"
@@ -29,6 +28,7 @@ function MyInput({ ...rest }) {
             : "rounded-lg w-full lg:w-[300px]"
         }
         ${realClass}
+        ${className}
         `}
     />
   );
