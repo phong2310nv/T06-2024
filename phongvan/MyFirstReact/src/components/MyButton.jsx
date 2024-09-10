@@ -23,7 +23,7 @@ const MyButton = (props) => {
   }
   return (
     <button
-      className={`text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full   px-5 py-2.5 text-center ${colorClasses} w-auto`}
+      className={`text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm   px-5 py-2.5 text-center ${colorClasses} w-auto`}
       type={type}
       {...rest}
     >

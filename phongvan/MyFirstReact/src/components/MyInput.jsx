@@ -1,5 +1,7 @@
+import { Fragment } from "react";
+
 /* eslint-disable react/prop-types */
-const MyInput = ({ type, ...rest }) => {
+const MyInput = ({ type, error, ...rest }) => {
   const realClass =
     type === "file"
       ? `
@@ -9,11 +11,14 @@ const MyInput = ({ type, ...rest }) => {
       `
       : "px-3 py-2.5";
   return (
-    <input
-      className={`block w-full outline-none disabled:opacity-50 disabled:pointer-events-none bg-gray-50 border shadow-md border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-blue-500  ${realClass}`}
-      type={type}
-      {...rest}
-    />
+    <Fragment>
+      <input
+        className={`block w-full outline-none disabled:opacity-50 disabled:pointer-events-none bg-gray-50 border shadow-md border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-blue-500  ${realClass}`}
+        type={type}
+        {...rest}
+      />
+      {error ? <p className="text-red-500">{error}</p> : null}
+    </Fragment>
   );
 };
 
