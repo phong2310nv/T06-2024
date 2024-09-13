@@ -1,0 +1,30 @@
+.form_group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+.user_form{
+   max-width: 500px;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-color: #e8f0dc;
+box-shadow: 0px 2px 1px rgb(0, 0, 0);
+    margin: 50px auto;
+   
+}
+body{
+    background-image: url('../../assets/Background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.user_form_title{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.table_row{
+   width: 100%;
+   height: auto;
+   text-align: center;
+  
+}

@@ -1,10 +1,11 @@
-import {TodoListComponent as TodoList} from './component'
+import {ExUserManagement} from './exercise'
+import "./App.css"
 
 function App() {
-    return <div className='flex flex-col gap-10'>
+    return <div className='flex flex-col'>
         <h1 className='text-center text-2xl mt-5'>Demo ReactJS</h1>
         <div>
-            <TodoList />
+            <ExUserManagement/>
         </div>
     </div>
 }

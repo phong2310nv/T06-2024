@@ -1,11 +1,12 @@
-
+import UserForm from './components/toDoList/userForm';
+import UserTable from './components/toDoList/userTable';
 import './App.css';
-import ToDoList from './components/toDoList/toDoList.jsx';
-
 function App() {
-  return (
-      <ToDoList />
-    
+  return(
+  <div>
+    <UserForm />
+    <UserTable/>
+  </div>
   )
 }
 
