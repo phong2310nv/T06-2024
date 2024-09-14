@@ -5,10 +5,15 @@ const UserForm = () => {
 
     const handleSubmit= e =>{
         e.preventDefault();
-        console.log(e)
+        console.log(formData);
     }
     const handleChange = (e)=>{
-        const{value , name , type}= e.target;
+        const{value , name , type, checkbox}= e.target;
+        setformData(
+            {
+                ...formData , [name]:value
+            }
+        )
         
 
 
@@ -72,7 +77,7 @@ const UserForm = () => {
                     <label className="form-check-label" htmlFor="isMarried">
                          Married
                     </label>
-                     <input className="form-check-input" type="checkbox" value="" id="isMarried" />
+                     <input className="form-check-input" type="checkbox" id="isMarried" onChange={handleChange}  />
                     
                 </div>
                 <div className={styles.form_group}>
