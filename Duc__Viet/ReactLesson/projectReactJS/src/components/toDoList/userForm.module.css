@@ -28,3 +28,14 @@ body{
    text-align: center;
   
 }
+.preview_file{
+    display: flex;
+    justify-content: center;
+}
+.preview_file img{
+   width: 200px;
+   height: auto;
+}
+.table_row td:first-child{
+    font-weight: bold;
+}

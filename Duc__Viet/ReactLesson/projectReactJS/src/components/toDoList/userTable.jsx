@@ -1,34 +1,38 @@
-
 import styles from "./userForm.module.css"
-const UserTable = () => {
-    return (
-        <div className="container">
-            <table className="table table-striped" >
-                   <thead>
-                    <tr className={styles.table_row}>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>  
-                    </tr>
-                </thead>
-                <tbody >
-                    <tr className={styles.table_row}>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>johndoe@example.com</td>
-                        <td><button className="btn btn-primary">Edit</button></td>
-                    </tr>
-                    
-                </tbody>
-                
-                
 
+const UserTable = ({ users }) => {
+  return (
+    <div className="container">
+      <table className="table table-striped">
+        <thead>
+          <tr className={styles.table_row}>
+            <th> Name</th>
+            <th>Salary</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Married</th>
+            <th>Duration</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => {
+            return (
+              <tr key={user.id} className={styles.table_row}> {/* Sử dụng user.id thay vì index */}
+                <td>{user.first_name} {user.last_name}</td>
+                <td>{user.salary}</td>
+                <td>{user.phone_number}</td>
+                <td>{user.gender}</td>
+                <td>{user.isMarried ? 'Yes' : 'No'}</td>
+                <td>{user.duration}</td>
+                <td>{user.desc}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
-                
-            </table>
-        </div>
-    )
-    
-}
-export default UserTable
+export default UserTable;
