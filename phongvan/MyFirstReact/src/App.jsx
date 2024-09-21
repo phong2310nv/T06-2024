@@ -1,4 +1,3 @@
-import LifecycleDemo from './Demos/LifeCycle';
 import UserFormTableDemo from './Demos/UserFormTable';
 import "./style.scss";
 const App = () => {
