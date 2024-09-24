@@ -1,7 +1,9 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import UserForm from "./UserForm";
 import UserTable from "./UserTable";
 import { useEffect } from "react";
+import SimpleChild from "./SimpleChild";
+import AverageSalaryDisplay from "./AverageSalaryDisplay";
 export const INIT_DATA = {
   first_name: "",
   last_name: "",
@@ -130,6 +132,47 @@ const UserFormTableDemo = () => {
     setFormData(data);
   };
 
+  const averageNum = useMemo(() => {
+    console.log("Calculate Salary");
+    if (!users.length) {
+      return 0;
+    }
+    return (
+      users.reduce((pre, next) => {
+        return pre + +(next.salary || 0);
+      }, 0) / users.length
+    );
+  }, [users]);
+  // const arr = [1, 2, 3, 4, 5];
+  // const sum = arr.reduce((a, b) => {
+  //   return a + b;
+  // }, 0);
+  // [1,2,3,4,5]  0
+  // 0 1 => 1
+  // 1 2 => 3
+  // 3 3 => 6
+  // 6 4 => 10
+  // 10 5 => 15
+
+  // const a = 500;
+  // const b = 500; // a==b / a===b => true
+  // const obj1 = {}; // obj1 === obj2 => false
+  // const obj2 = {};
+
+  const aboveAverages = useMemo(() => {
+    return users.filter((user) => user.salary > averageNum);
+  }, [users, averageNum]);
+  // console.log(aboveAverages);
+
+  const AlertNoSalaryMember = useCallback(() => {
+    const noSalaryUser = users
+      .filter((user) => !user.salary)
+      .map((user) => {
+        return `${user.first_name} ${user.last_name}`;
+      });
+    alert(`No Salary members: ${noSalaryUser.join(", ")}`);
+  }, [users]);
+
   return (
     <div>
       <h1>UserFormTableDemo</h1>
@@ -141,7 +184,16 @@ const UserFormTableDemo = () => {
           setFormData={setFormData}
         />
       </div>
+      <SimpleChild />
       <hr className="my-10" />
+      {/* <div className="px-20 mb-5 text-lg font-bold">
+        Average Salary: {averageNum.toFixed(2)}
+      </div> */}
+      <AverageSalaryDisplay
+        averageNum={averageNum}
+        aboveAverages={aboveAverages}
+        AlertNoSalaryMember={AlertNoSalaryMember}
+      />
       <UserTable
         users={users}
         onClickEdit={onClickEdit}
