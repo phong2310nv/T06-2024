@@ -1,9 +1,9 @@
-import UserFormTableDemo from './Demos/UserFormTable';
+import RoutingDemo from "./Demos/Routing";
 import "./style.scss";
 const App = () => {
   return (
     <div>
-      <UserFormTableDemo />
+      <RoutingDemo />
     </div>
   );
 };
