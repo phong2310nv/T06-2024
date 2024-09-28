@@ -14,7 +14,6 @@ const UserForm = ({ handleAdd, handleEdit, formData, setFormData }) => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     const errors = {};
     // let isError = false;
 
@@ -38,7 +37,7 @@ const UserForm = ({ handleAdd, handleEdit, formData, setFormData }) => {
     if (formData.id) {
       handleEdit(formData);
     } else {
-      handleAdd({ ...formData, id: Date.now() });
+      handleAdd({ ...formData });
     }
     handleReset();
   };

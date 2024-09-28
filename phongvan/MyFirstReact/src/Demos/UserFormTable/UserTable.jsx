@@ -3,14 +3,12 @@ import MyInput from "../../components/MyInput";
 import MyLabel from "../../components/MyLabel";
 
 /* eslint-disable react/prop-types */
-const UserTable = ({ users, setFormData, handleDelete }) => {
+const UserTable = ({ users, onClickEdit, handleDelete }) => {
   const [filterData, setFilterData] = useState({
     search_key: "",
     filter_married: "all",
   });
-  const handleEdit = (userDetail) => {
-    setFormData(userDetail);
-  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFilterData({ ...filterData, [name]: value });
@@ -125,7 +123,7 @@ const UserTable = ({ users, setFormData, handleDelete }) => {
                         className="font-medium text-blue-600  hover:underline"
                         onClick={(e) => {
                           e.preventDefault();
-                          handleEdit(user);
+                          onClickEdit(user);
                         }}
                       >
                         Edit
