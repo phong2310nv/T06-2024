@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import MyInput from "../../components/MyInput";
 import MyLabel from "../../components/MyLabel";
 
@@ -9,21 +9,44 @@ const UserTable = ({ users, onClickEdit, handleDelete }) => {
     filter_married: "all",
   });
 
+  const [realKeyword, setRealKeyword] = useState("");
+
+  useEffect(() => {
+    // Copy value after 1s
+    const timeoutID = setTimeout(() => {
+      setRealKeyword(filterData.search_key);
+    }, 1000);
+
+    return () => {
+      // Clear copy action
+      clearTimeout(timeoutID);
+    };
+  }, [filterData.search_key]);
+
+  // 1 =>  settimeout => tạo ra 1 hàm X nhưng k gọi
+  // 2 => gọi X đã được tạo trước đó =>  settimeout
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFilterData({ ...filterData, [name]: value });
   };
-  const filteredUser = users
-    .filter(
-      (u) =>
-        u.first_name.includes(filterData.search_key) ||
-        u.last_name.includes(filterData.search_key)
-    )
-    .filter(
-      (u) =>
-        filterData.filter_married === "all" ||
-        u.isMarried + "" === filterData.filter_married
-    ); // true/false   "true"/"false"
+
+  const filteredUser = useMemo(() => {
+    return users
+      .filter(
+        (u) =>
+          u.first_name.includes(realKeyword) ||
+          u.last_name.includes(realKeyword)
+      )
+      .filter(
+        (u) =>
+          filterData.filter_married === "all" ||
+          u.isMarried + "" === filterData.filter_married
+      );
+  }, [filterData.filter_married, realKeyword, users]);
+
+  // true/false   "true"/"false"
+
   return (
     <div className="border rounded p-5 mx-10">
       <div className="mb-5 flex gap-5">
@@ -37,6 +60,8 @@ const UserTable = ({ users, onClickEdit, handleDelete }) => {
             placeholder="Search name"
             onChange={handleChange}
           />
+          <div>Input Key: {filterData.search_key}</div>
+          <div>Real Key: {realKeyword}</div>
         </div>
         <div>
           <MyLabel>Is Married</MyLabel>
