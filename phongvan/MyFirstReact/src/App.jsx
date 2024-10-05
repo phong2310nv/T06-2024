@@ -1,9 +1,12 @@
-import RoutingDemo from "./Demos/Routing";
+import ContextDemo from "./Demos/ContextDemo";
+import ReduxDemo from "./Demos/ReduxDemo";
 import "./style.scss";
 const App = () => {
   return (
     <div>
-      <RoutingDemo />
+      {/* <RoutingDemo /> */}
+      <ContextDemo />
+      <ReduxDemo />
     </div>
   );
 };
