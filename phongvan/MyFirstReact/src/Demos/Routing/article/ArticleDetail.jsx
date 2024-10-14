@@ -38,7 +38,7 @@ const ArticleDetail = () => {
       <div>User Detail: {JSON.stringify(userInfo)}</div>
       <MyButton
         onClick={() => {
-          navigate(-1);
+          navigate("article");
         }}
       >
         Go Back
