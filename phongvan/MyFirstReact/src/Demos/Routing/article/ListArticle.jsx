@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MyButton from "../../../components/MyButton";
 
 const ListArticle = () => {
   const navigate = useNavigate();
-  const articles = [
-    {
-      title: "Abc",
-      id: 1,
-    },
-    {
-      title: "BCD",
-      id: 2,
-    },
-  ];
+
+  const [users, setUsers] = useState([]);
+  const loadUser = useCallback(async () => {
+    // console.log(count);
+    try {
+      const response = await fetch(
+        "https://66c06562ba6f27ca9a567e99.mockapi.io/employee"
+      );
+      // console.log(response);
+      const data = await response.json();
+      // console.log(data);
+      setUsers(data);
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }, []);
+  useEffect(() => {
+    console.log("First time render");
+    loadUser();
+  }, [loadUser]);
   const handleClick = () => {
     alert("Ready to add new");
     navigate("/article/add");
@@ -31,14 +41,14 @@ const ListArticle = () => {
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-6 py-4">
-              Title
+              Name
             </th>
 
             <th scope="col" className="px-6 py-4"></th>
           </tr>
         </thead>
         <tbody>
-          {articles.map((ar) => {
+          {users.map((ar) => {
             return (
               <tr
                 key={ar.id}
@@ -48,7 +58,7 @@ const ListArticle = () => {
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  {ar.title}
+                  {ar.first_name}
                 </th>
                 <td className="px-6 py-4 text-right">
                   <div className="flex gap-5">
