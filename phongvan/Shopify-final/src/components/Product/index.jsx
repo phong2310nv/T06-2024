@@ -2,42 +2,45 @@ import { Link } from "react-router-dom";
 import RatingStar from "../RatingStart";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const Product = () => {
+const Product = (props) => {
+  const { productInfo = {} } = props;
+  const { id, title, category, rating, price, discountPercentage, thumbnail } =
+    productInfo;
   return (
     <div className="border border-gray-200 font-lato" data-test="product-card">
       <div className="text-center border-b border-gray-200">
         <a>
           <img
-            src={
-              "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
-            }
+            src={thumbnail}
             className="inline-block h-60 transition-transform duration-200 hover:scale-110"
           />
         </a>
       </div>
       <div className="px-8 pt-4">
         <p className="text-gray-500 text-[14px] font-medium dark:text-white">
-          beauty
+          {category}
         </p>
         <Link
-          to={"/product/someId"}
+          to={`/product/${id}`}
           className="font-semibold hover:underline dark:text-white"
         >
-          Essence Mascara Lash Princess
+          {title}
         </Link>
       </div>
       <div className="px-8">
-        <RatingStar rating={2.5} />
+        <RatingStar rating={rating} />
       </div>
       <div className="flex items-center justify-between px-8 pb-4">
         <div className="leading-3">
           <h2 className="font-medium text-blue-500 text-xl">
-            ${(99.99).toFixed(2)}
+            ${(price * discountPercentage).toFixed(2)}
           </h2>
           <span className="mr-2 text-sm line-through opacity-70 dark:text-white">
-            ${99}
+            ${price}
           </span>
-          <span className="text-sm font-semibold dark:text-white">-{10}%</span>
+          <span className="text-sm font-semibold dark:text-white">
+            -{discountPercentage}%
+          </span>
         </div>
         <button
           type="button"

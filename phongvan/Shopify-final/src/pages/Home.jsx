@@ -1,10 +1,34 @@
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useCallback, useEffect, useState } from "react";
 import Features from "../components/Features";
 import Hero from "../components/Hero";
 import Product from "../components/Product";
-import RatingStar from "../components/RatingStart";
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
+
+  const fetchProduct = useCallback(async () => {
+    const response = await fetch(
+      `https://dummyjson.com/products?limit=16&skip=10`
+    );
+    const jsonResponse = await response.json();
+    setProducts(jsonResponse.products);
+  }, []);
+
+  useEffect(() => {
+    fetchProduct();
+  }, [fetchProduct]);
+
+  // console.log(products);
+  // const arr = [1, 2, 3, 4, 5];
+  // const test = arr
+  //   .map((item) => item * 2)
+  //   .map((item) => item * 3)
+  //   .filter((item) => item > 15);
+  // console.log(test);
+
+  const topProducts = products.slice(0, 8);
+  const botProducts = products.slice(8, 16);
+
   return (
     <div>
       {/* Main */}
@@ -24,7 +48,9 @@ const Home = () => {
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-4"
             data-test="product-list-container"
           >
-            <Product />
+            {topProducts.map((p) => (
+              <Product key={p.id} productInfo={p} />
+            ))}
           </div>
         </div>
         {/* Banner */}
@@ -56,8 +82,9 @@ const Home = () => {
             data-test="product-list-container"
           >
             {/* Single Product */}
-            <Product />
-            <Product />
+            {botProducts.map((p) => (
+              <Product key={p.id} productInfo={p} />
+            ))}
           </div>
         </div>
       </div>

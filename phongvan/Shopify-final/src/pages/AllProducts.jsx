@@ -1,6 +1,19 @@
+import { useCallback, useEffect, useState } from "react";
 import Product from "../components/Product";
 
 const AllProducts = () => {
+  const [products, setProducts] = useState([]);
+
+  const fetchProduct = useCallback(async () => {
+    const response = await fetch(`https://dummyjson.com/products`);
+    const jsonResponse = await response.json();
+    setProducts(jsonResponse.products);
+  }, []);
+
+  useEffect(() => {
+    fetchProduct();
+  }, [fetchProduct]);
+
   return (
     <div>
       {/* Main */}
@@ -18,7 +31,9 @@ const AllProducts = () => {
               </div>
               <div className="grid gap-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
                 {/* Single product */}
-                <Product />
+                {products.map((p) => (
+                  <Product key={p.id} productInfo={p} />
+                ))}
               </div>
             </div>
           </div>
