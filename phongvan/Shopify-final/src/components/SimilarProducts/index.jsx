@@ -17,6 +17,7 @@ const SimilarProducts = ({ originProduct }) => {
   useEffect(() => {
     fetchProduct();
   }, [fetchProduct]);
+
   return (
     <div className="container mt-8 mx-auto px-4 dark:bg-slate-800">
       <div className="sm:flex items-center justify-between">

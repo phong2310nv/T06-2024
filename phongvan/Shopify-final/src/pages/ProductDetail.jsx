@@ -6,6 +6,9 @@ import Reviews from "../components/Reviews";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SimilarProducts from "../components/SimilarProducts";
+import { useDispatch, useSelector } from "react-redux";
+import { openLoginModal } from "../store/slices/commonSlice";
+import { addItemToCart } from "../store/slices/cartSlice";
 const lorem =
   "It is important to take care of the patient, to be followed by the patient, but it will happen at such a time that there is a lot of work and pain. For to come to the smallest detail, no one should practice any kind of work unless he derives some benefit from it. Do not be angry with the pain in the reprimand in the pleasure he wants to be a hair from the pain in the hope that there is no breeding. Unless they are blinded by lust, they do not come forth; they are in fault who abandon their duties and soften their hearts, that is, their labors.";
 
@@ -13,6 +16,9 @@ const ProductDetail = () => {
   const [product, setProductInfo] = useState({
     images: [],
   });
+  const isLoggedIn = useSelector((state) => state.authSlice.isLoggedIn);
+  const dispatch = useDispatch();
+
   const { id } = useParams();
 
   const fetchProductInfo = useCallback(async () => {
@@ -25,6 +31,16 @@ const ProductDetail = () => {
     fetchProductInfo();
   }, [fetchProductInfo]);
 
+  const addToCart = () => {
+    if (isLoggedIn) {
+      // Add current item to cart
+      console.log("Add to cart");
+      dispatch(addItemToCart(product));
+    } else {
+      //  Show login
+      dispatch(openLoginModal());
+    }
+  };
   // const product = {
   //   id: 6,
   //   title: "Calvin Klein CK One",
@@ -146,6 +162,7 @@ const ProductDetail = () => {
             </div>
             <div className="flex flex-wrap items-center mt-4 mb-2 space-x-2">
               <button
+                onClick={addToCart}
                 type="button"
                 className="flex items-center space-x-1 mb-2 hover:bg-pink-700 text-white p-2 rounded bg-pink-500"
               >

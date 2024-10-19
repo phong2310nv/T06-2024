@@ -7,6 +7,8 @@ import ProductDetail from "./pages/ProductDetail";
 import Profile from "./pages/Profile";
 import WishList from "./pages/WishList";
 import Layout from "./components/Layout";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +49,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </div>
   );
 }

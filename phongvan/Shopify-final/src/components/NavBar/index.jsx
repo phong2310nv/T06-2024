@@ -4,9 +4,27 @@ import { FaUser } from "react-icons/fa";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import AccountDropdown from "../AccountDropdown/index.";
+import { useDispatch, useSelector } from "react-redux";
+import { openLoginModal, toggleOpenCart } from "../../store/slices/commonSlice";
 
 const NavBar = () => {
+  const isLoggedIn = useSelector((state) => state.authSlice.isLoggedIn);
+  const cartItems = useSelector((state) => state.cartSlice.items);
+
+  let total = 0;
+  for (let i = 0; i < cartItems.length; i++) {
+    total += cartItems[i].quantity;
+  }
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleOpenLogin = () => {
+    dispatch(openLoginModal());
+  };
+  const openCart = () => {
+    dispatch(toggleOpenCart());
+  };
   return (
     <div className="py-4 bg-white dark:bg-slate-800 top-0 sticky z-10 shadow-lg font-karla">
       <div className="container mx-auto px-4">
@@ -46,23 +64,32 @@ const NavBar = () => {
               Categories
             </a>
             <div className="flex items-center gap-2">
-              <AccountDropdown />
-              <img
-                src="https://robohash.org/Terry.png?set=set4"
-                alt="avatar"
-                className="w-6"
-              />
-              <FaUser className="text-gray-500 text-2xl dark:text-white" />
-              <div className="text-gray-500 text-2xl">
-                <span
-                  className="cursor-pointer hover:opacity-85 dark:text-white"
-                  data-test="login-btn"
-                >
-                  Login
-                </span>
-              </div>
+              {isLoggedIn ? (
+                <>
+                  <img
+                    src="https://robohash.org/Terry.png?set=set4"
+                    alt="avatar"
+                    className="w-6"
+                  />
+                  <AccountDropdown />
+                </>
+              ) : (
+                <>
+                  <FaUser className="text-gray-500 text-2xl dark:text-white" />
+                  <div className="text-gray-500 text-2xl">
+                    <span
+                      onClick={handleOpenLogin}
+                      className="cursor-pointer hover:opacity-85 dark:text-white"
+                      data-test="login-btn"
+                    >
+                      Login
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
             <div
+              onClick={openCart}
               className="text-gray-500 text-[32px] relative hover:cursor-pointer hover:opacity-80"
               data-test="cart-btn"
             >
@@ -71,7 +98,7 @@ const NavBar = () => {
                 className="absolute top-[-15px] right-[-10px] bg-red-600 w-[25px] h-[25px] rounded-full text-white text-[14px] grid place-items-center"
                 data-test="cart-item-count"
               >
-                {999}
+                {total}
               </div>
             </div>
             <div className="flex">

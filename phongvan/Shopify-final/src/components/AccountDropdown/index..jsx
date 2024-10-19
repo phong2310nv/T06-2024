@@ -4,17 +4,21 @@ import {
   MdOutlineAccountCircle,
   MdOutlineLogout,
 } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../../store/slices/authSlice";
 
 const AccountDropdown = () => {
   const [isVisible, setVisible] = useState(false);
-
+  const username = useSelector((state) => state.authSlice.username);
+  const dispatch = useDispatch();
   const handlePopup = () => {
     setVisible((v) => !v);
   };
 
   const handleLogout = () => {
     hidePopup();
+    dispatch(logout());
   };
 
   const hidePopup = () => {
@@ -28,7 +32,7 @@ const AccountDropdown = () => {
         onClick={handlePopup}
         data-test="username-popup"
       >
-        {"Someusername"}
+        {username}
       </div>
       {isVisible && (
         <div

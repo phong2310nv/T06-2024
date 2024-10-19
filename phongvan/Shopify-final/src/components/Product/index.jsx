@@ -1,11 +1,28 @@
 import { Link } from "react-router-dom";
 import RatingStar from "../RatingStart";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart } from "../../store/slices/cartSlice";
+import { openLoginModal } from "../../store/slices/commonSlice";
 
 const Product = (props) => {
   const { productInfo = {} } = props;
   const { id, title, category, rating, price, discountPercentage, thumbnail } =
     productInfo;
+  const isLoggedIn = useSelector((state) => state.authSlice.isLoggedIn);
+
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    if (isLoggedIn) {
+      // Add current item to cart
+      console.log("Add to cart");
+      dispatch(addItemToCart(productInfo));
+    } else {
+      //  Show login
+      dispatch(openLoginModal());
+    }
+  };
   return (
     <div className="border border-gray-200 font-lato" data-test="product-card">
       <div className="text-center border-b border-gray-200">
@@ -43,6 +60,7 @@ const Product = (props) => {
           </span>
         </div>
         <button
+          onClick={addToCart}
           type="button"
           className="flex items-center space-x-2 hover:bg-blue-500 text-white py-2 px-4 rounded bg-pink-500"
           data-test="add-cart-btn"
